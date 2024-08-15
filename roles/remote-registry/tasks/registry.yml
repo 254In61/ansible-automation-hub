@@ -9,3 +9,4 @@
     ah_host: "{{ ah_host }}"
     ah_username: "{{ ah_usn }}"
     ah_password: "{{ ah_pwd }}"
+    validate_certs: false
