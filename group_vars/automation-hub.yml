@@ -1,0 +1,5 @@
+---
+# Set variables
+ah_host: "{{ lookup('env', 'AH_HOST') }}"
+ah_usn: "{{ lookup('env', 'AH_USERNAME') }}"
+ah_pwd: "{{ lookup('env', 'AH_PASSWORD') }}"

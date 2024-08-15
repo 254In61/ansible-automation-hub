@@ -1,0 +1,15 @@
+---
+- name: Configure objects in the PAH
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    ah_validate_certs: false
+
+  pre_tasks:
+    - name: Include vars from group_vars
+      ansible.builtin.include_vars:
+        dir: group_vars
+  
+  roles:
+    - remote-registry

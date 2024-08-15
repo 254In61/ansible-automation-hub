@@ -1,0 +1,11 @@
+---
+- name: "Add a remote registry - {{ private_quay }}"
+  infra.ah_configuration.ah_ee_registry:
+    name: "{{ private_quay_pah_registry_name }}"
+    state: present
+    url: "{{ private_quay }}"
+    username: "{{ private_quay_usn }}"
+    password: "{{ private_quay_pwd }}"
+    ah_host: "{{ ah_host }}"
+    ah_username: "{{ ah_usn }}"
+    ah_password: "{{ ah_pwd }}"
