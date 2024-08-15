@@ -8,7 +8,7 @@ REF: https://console.redhat.com/ansible/automation-hub/repo/validated/infra/ah_c
 # How to use
 
 1. Ensure the collection is installed in your dev environment
-$ ansible-galaxy collection install infra.ah_configuration
+   $ ansible-galaxy collection install infra.ah_configuration
 
 2. Put the following env variables
 export AH_HOST=
