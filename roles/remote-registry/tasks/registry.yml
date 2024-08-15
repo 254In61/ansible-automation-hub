@@ -26,6 +26,7 @@
     headers:
       Content-Type: "application/json"
     return_content: yes
+    validate_certs: false
   register: auth_response
 
 - name: Set Auth Token
@@ -45,7 +46,8 @@
       description: "{{ private_quay_pah_registry_description }}"
       url: "{{ private_quay_url }}"
     status_code: 201
-    register: registry_creation
+    validate_certs: false
+  register: registry_creation
 
 - name: Debug Registry Creation
   ansible.builtin.debug:
