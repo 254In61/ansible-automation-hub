@@ -1,9 +1,10 @@
 ---
 # private quay.io
-private_quay: "https://{{ lookup('env', 'PRIVATE_QUAY') }}"
+private_quay_url: "https://{{ lookup('env', 'PRIVATE_QUAY') }}"
 private_quay_usn: "{{ lookup('env', 'PRIVATE_QUAY_USN') }}"
 private_quay_pwd: "{{ lookup('env', 'PRIVATE_PWD') }}"
 private_quay_pah_registry_name: production-quay
+private_quay_pah_registry_description: Production quay registry
 
 # # public quay.io
 # public_quay_url:

@@ -1,5 +1,5 @@
 ---
 # Set variables
-ah_host: "https://{{ lookup('env', 'AH_HOST') }}"
+ah_url: "https://{{ lookup('env', 'AH_HOST') }}"
 ah_usn: "{{ lookup('env', 'AH_USERNAME') }}"
 ah_pwd: "{{ lookup('env', 'AH_PASSWORD') }}"

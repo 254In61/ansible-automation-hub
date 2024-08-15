@@ -1,12 +1,52 @@
 ---
-- name: "Add a remote registry - {{ private_quay }}"
-  infra.ah_configuration.ah_ee_registry:
-    name: "{{ private_quay_pah_registry_name }}"
-    state: present
-    url: "{{ private_quay }}"
-    username: "{{ private_quay_usn }}"
-    password: "{{ private_quay_pwd }}"
-    ah_host: "{{ ah_host }}"
-    ah_username: "{{ ah_usn }}"
-    ah_password: "{{ ah_pwd }}"
-    validate_certs: false
+# Using ah_ee_registry module.
+# Keep giving me an error : The error was: KeyError: 'non_field_errors'
+# - name: "Add a remote registry - {{ private_quay }}"
+#   infra.ah_configuration.ah_ee_registry:
+#     name: "{{ private_quay_pah_registry_name }}"
+#     state: present
+#     url: "{{ private_quay }}"
+#     username: "{{ private_quay_usn }}"
+#     password: "{{ private_quay_pwd }}"
+#     ah_host: "{{ ah_host }}"
+#     ah_username: "{{ ah_usn }}"
+#     ah_password: "{{ ah_pwd }}"
+#     validate_certs: false
+
+# Using the builtin.uri module
+
+- name: Log in to Ansible Automation Hub
+  ansible.builtin.uri:
+    url: "{{ ah_url }}/api/automation-hub/v3/auth/token/"
+    method: POST
+    body_format: json
+    body:
+      username: "{{ ah_usn }}"
+      password: "{{ ah_pwd }}"
+    headers:
+      Content-Type: "application/json"
+    return_content: yes
+  register: auth_response
+
+- name: Set Auth Token
+  ansible.builtin.set_fact:
+    auth_token: "{{ auth_response.json.token }}"
+
+- name: Create a new registry
+  ansible.builtin.uri:
+    url: "{{ ah_url }}/api/automation-hub/_ui/v1/registries/"
+    method: POST
+    headers:
+      Authorization: "Bearer {{ auth_token }}"
+      Content-Type: "application/json"
+    body_format: json
+    body:
+      name: "{{ private_quay_pah_registry_name }}"
+      description: "{{ private_quay_pah_registry_description }}"
+      url: "{{ private_quay_url }}"
+    status_code: 201
+    register: registry_creation
+
+- name: Debug Registry Creation
+  ansible.builtin.debug:
+    var: registry_creation
