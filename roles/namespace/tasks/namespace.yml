@@ -1,0 +1,16 @@
+---
+# A test task with static variables to see if the playbook works
+
+- name: Create Tower Ping job template
+  infra.ah_configuration.ah_namespace:
+    name: Redhat
+    company: Redhat
+    email: amaseghe@redhat.com
+    avatar_url: https://pnt.redhat.com/pnt/d-11633955/LogoRedHatHatColorRGB.png
+    description: This is the Redhat Namespace
+    links:
+      - name: "homepage"
+        url: "https://www.redhat.com"
+    groups:
+      - SG-VHA-Ansible-Nokia-Cloud-Ops
+      - SG-VHA-GitLab-VHA

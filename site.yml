@@ -12,4 +12,5 @@
         dir: group_vars
   
   roles:
+    - namespace
     - remote-registry
