@@ -3,8 +3,6 @@ Repository that has playbooks to configure different objectects in the Ansible A
 REF: https://console.redhat.com/ansible/automation-hub/repo/validated/infra/ah_configuration/
 
 
-
-
 # How to use
 
 1. Ensure the collection is installed in your dev environment
@@ -14,3 +12,12 @@ REF: https://console.redhat.com/ansible/automation-hub/repo/validated/infra/ah_c
 export AH_HOST=
 export AH_USERNAME=
 export AH_PASSWORD=
+
+# Status of build
+=> This repo is yet to be fully built and tested.
+
+
+# Author
+Name  : Allan D M Maseghe
+
+Email : amaseghe@redhat.com
