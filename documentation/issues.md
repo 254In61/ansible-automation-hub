@@ -4,4 +4,6 @@ fatal: [localhost]: FAILED! => {"msg": "Could not find imported module support c
 
 -> I am using a python venv
 -> Collections was installed under the python venv
--> 
+-> I settled to using an execution environment.. A container.
+
+# Failing connections to the 
